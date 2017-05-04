@@ -24,7 +24,8 @@ const mapStateToProps = (state) => ({
   seconds: state.timer.seconds,
 })
 const mapDispatchToProps = (dispatch) => ({
-  handleStart: () => dispatch({ type: 'TICK' }),
+  handleStart: () => dispatch({ type: 'START' }),
+  // handleStart: () => dispatch({ type: 'TICK' }),
   handleReset: () => dispatch({ type: 'RESET' }),
 })
 

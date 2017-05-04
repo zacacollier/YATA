@@ -1,4 +1,5 @@
 export default {
+  START: 'START',
   convertMin: (sec) => (sec - sec % 60) / 60,
   convertSec: (sec) => (sec % 60),
   displayMin: (sec) => this.convertMin(sec) > 0 ? this.convertMin(sec) : '',
