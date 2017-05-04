@@ -1,10 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
 import TimerFace from './TimerFace'
-import Button from './Button';
 import ButtonGroup from '../containers/ButtonGroup';
-import { displayMin, displaySec } from '../constants';
 import './App.css'
 
 const App = ({

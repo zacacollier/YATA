@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from '../components/Button';
+import _ from 'lodash';
 
 const ButtonGroup = (
   {
@@ -9,7 +10,7 @@ const ButtonGroup = (
   }) => (
   <div className="button-group">
     <Button
-      onClick={handleStart}
+      onClick={_.throttle(handleStart, 1000)}
       text='Go'
       isDisabled={timer.isStarted}
     />
