@@ -1,50 +1,13 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import timer from './timerReducer'
+import search from './searchReducer'
 
-const initialState = {
-  timer: {
-    isStarted: false,
-    isStopped: true,
-    seconds: 0,
-  },
+const reducers = {
+  timer,
+  search,
+  formReducer,
 }
 
-const timer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'START':
-      return {
-        ...state,
-        timer: {
-          ...state.timer,
-          isStarted: true,
-          isStopped: false,
-        }
-      }
-    case 'STOP':
-      return {
-        ...state,
-        timer: {
-          ...state.timer,
-          isStarted: false,
-          isStopped: true,
-        }
-      }
-    case 'RESET':
-      return {
-        ...state,
-        timer: initialState.timer,
-      }
-    case 'TICK':
-      return {
-        ...state,
-        timer: {
-          ...state.timer,
-          seconds: state.timer.seconds + 1,
-        },
-      }
-    default:
-      return state
-  }
-}
-
-const rootReducer = combineReducers({ timer })
+const rootReducer = combineReducers(reducers)
 export default rootReducer

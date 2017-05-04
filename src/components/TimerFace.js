@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { displaySec } from '../constants';
+import './TimerFace.css'
 
 const TimerFace = ({ timer }) => (
-    <div className="timer">
+    <div className="timer-face">
      { `.${displaySec(timer.seconds)}` }
     </div>
 )
