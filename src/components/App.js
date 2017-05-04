@@ -8,8 +8,10 @@ const App = ({
   handleReset, handleStop, handleStart
   }) => (
   <div className="App">
-    <TimerFace />
-    <ButtonGroup />
+    <div className="timer-group">
+      <TimerFace />
+      <ButtonGroup />
+    </div>
   </div>
 )
 
