@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 const initialState = {
   timer: {
     isStarted: false,
+    isStopped: true,
     seconds: 0,
   },
 }
@@ -15,6 +16,7 @@ const timer = (state = initialState, action) => {
         timer: {
           ...state.timer,
           isStarted: true,
+          isStopped: false,
         }
       }
     case 'STOP':
@@ -23,6 +25,7 @@ const timer = (state = initialState, action) => {
         timer: {
           ...state.timer,
           isStarted: false,
+          isStopped: true,
         }
       }
     case 'RESET':

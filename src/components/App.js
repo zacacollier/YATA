@@ -10,10 +10,10 @@ const App = ({
   handleReset, handleStop, handleStart
   }) => (
   <div className="App">
-    <div>
+    <div className="timer">
      { `.${displaySec(timer.timer.seconds)}` }
     </div>
-    <div>
+    <div className="button-group">
       <Button
         onClick={handleStart}
         text='Go'
@@ -22,7 +22,7 @@ const App = ({
       <Button
         onClick={timer.timer.isStarted ? handleStop : handleReset }
         text={timer.timer.isStarted ? 'Stop' : 'Reset' }
-        isDisabled={!timer.timer.isStarted}
+        isDisabled={timer.timer.seconds === 0}
       />
     </div>
   </div>

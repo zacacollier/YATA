@@ -1,4 +1,15 @@
+html, body, #root {
+  margin: 0;
+  height: 100%;
+}
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%
+}
+
+.timer {
   margin: 0 auto;
   width: 13.37%;
   background-color: gainsboro;
@@ -11,6 +22,12 @@
   font-weight: normal;
   font-style: italic;
   font-size: 4vw;
+}
+
+.button-group {
+  text-align: center;
+}
+.button {
 }
 
 .App-logo {
