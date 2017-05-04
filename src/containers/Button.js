@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const Button = ({ onClick }) => (
+const Button = ({ onClick, text }) => (
   <button onClick={onClick}>
-    Start
+    { text }
   </button>
 )
-
 
 export default Button;

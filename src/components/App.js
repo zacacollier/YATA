@@ -5,12 +5,17 @@ import Button from '../containers/Button';
 
 const App = ({
   seconds,
-  handleClick
+  handleReset, handleStart
   }) => (
   <div>
     { seconds }
     <Button
-      onClick={handleClick}
+      onClick={handleStart}
+      text='Start'
+    />
+    <Button
+      onClick={handleReset}
+      text='Reset'
     />
   </div>
 )
@@ -19,7 +24,8 @@ const mapStateToProps = (state) => ({
   seconds: state.timer.seconds,
 })
 const mapDispatchToProps = (dispatch) => ({
-  handleClick: () => dispatch({ type: 'TICK' })
+  handleStart: () => dispatch({ type: 'TICK' }),
+  handleReset: () => dispatch({ type: 'RESET' }),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
