@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import Button from '../containers/Button';
 
 const App = ({
-  seconds,
+  timer,
   handleReset, handleStart
   }) => (
   <div>
-    { seconds }
+    { timer.timer.seconds }
     <Button
       onClick={handleStart}
       text='Start'
@@ -21,7 +21,7 @@ const App = ({
 )
 
 const mapStateToProps = (state) => ({
-  seconds: state.timer.seconds,
+  timer: state.timer,
 })
 const mapDispatchToProps = (dispatch) => ({
   handleStart: () => dispatch({ type: 'START' }),

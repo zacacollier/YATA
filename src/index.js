@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { createLogger } from 'redux-logger';
 
@@ -11,11 +11,13 @@ import rootReducer from './reducers';
 import 'rxjs';
 
 const logger = createLogger();
-
 const epicMiddleware = createEpicMiddleware(rootEpic)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
-  applyMiddleware(logger, epicMiddleware)
+  composeEnhancers(
+    applyMiddleware(logger, epicMiddleware)
+  )
 )
 
 const renderApp = (Component, reduxStore = 0) => render(
