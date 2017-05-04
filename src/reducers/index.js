@@ -17,6 +17,14 @@ const timer = (state = initialState, action) => {
           isStarted: true,
         }
       }
+    case 'STOP':
+      return {
+        ...state,
+        timer: {
+          ...state.timer,
+          isStarted: false,
+        }
+      }
     case 'RESET':
       return {
         ...state,
