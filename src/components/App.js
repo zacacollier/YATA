@@ -2,23 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../containers/Button';
-
+import { displayMin, displaySec } from '../constants';
+import './App.css'
 // TODO: Resume the timer, prevent extra timers from being launched
 const App = ({
   timer,
   handleReset, handleStop, handleStart
   }) => (
-  <div>
-    { timer.timer.seconds }
-    <Button
-      onClick={handleStart}
-      text='Go'
-      isDisabled={timer.timer.isStarted}
-    />
-    <Button
-      onClick={timer.timer.isStarted ? handleStop : handleReset }
-      text={timer.timer.isStarted ? 'Stop' : 'Reset' }
-    />
+  <div className="App">
+    <div>
+     { `.${displaySec(timer.timer.seconds)}` }
+    </div>
+    <div>
+      <Button
+        onClick={handleStart}
+        text='Go'
+        isDisabled={timer.timer.isStarted}
+      />
+      <Button
+        onClick={timer.timer.isStarted ? handleStop : handleReset }
+        text={timer.timer.isStarted ? 'Stop' : 'Reset' }
+        isDisabled={!timer.timer.isStarted}
+      />
+    </div>
   </div>
 )
 

@@ -1,5 +1,16 @@
 .App {
+  margin: 0 auto;
+  width: 13.37%;
+  background-color: gainsboro;
+  color: #222;
   text-align: center;
+  height: 5vw;
+  line-height: 5.5vw;
+  border-radius: 3vw;
+  font-family: 'Segment7Standard', monospace;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 4vw;
 }
 
 .App-logo {

@@ -1,4 +1,3 @@
-import * as C from '../constants'
 import { combineEpics } from 'redux-observable';
 import { Observable } from 'rxjs/Observable'
 
