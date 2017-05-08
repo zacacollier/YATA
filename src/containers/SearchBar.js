@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import './SearchGroup.css'
+import '../styles/SearchGroup.css';
 
 const SearchBar = ({
   handleChange, handleSubmit,

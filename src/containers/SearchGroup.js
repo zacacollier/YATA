@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import SearchBar from './SearchBar';
-import './SearchGroup.css'
+import '../styles/SearchGroup.css'
 
 let SearchGroup = ({
   formValue,

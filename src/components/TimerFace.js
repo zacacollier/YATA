@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { displaySec } from '../constants';
-import './TimerFace.css'
+import '../styles/TimerFace.css'
 
 const TimerFace = ({ timer }) => (
     <div className="timer-face">

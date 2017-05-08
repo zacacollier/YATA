@@ -1,7 +1,8 @@
 const initialState = {
   formValue: '',
   searchResults: [],
-  searchError: ''
+  searchError: '',
+  isFetching: null,
 }
 const search = (state = initialState, action) => {
   switch (action.type) {
@@ -9,6 +10,11 @@ const search = (state = initialState, action) => {
       return {
         ...state,
         formValue: action.payload
+      }
+    case 'SEARCH_FORM_REQUEST':
+      return {
+        ...state,
+        isFetching: true,
       }
     case 'SEARCH_API_SUCCESS':
       return {

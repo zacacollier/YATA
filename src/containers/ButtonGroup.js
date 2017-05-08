@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '../components/Button';
 import _ from 'lodash';
-import './ButtonGroup.css';
+import '../styles/ButtonGroup.css';
 
 const ButtonGroup = (
   {

@@ -8,9 +8,7 @@ import { createLogger } from 'redux-logger';
 import App from './components/App';
 import rootEpic from './epics';
 import rootReducer from './reducers';
-import { config } from 'dotenv';
 import 'rxjs';
-config();
 const logger = createLogger();
 const epicMiddleware = createEpicMiddleware(rootEpic)
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
