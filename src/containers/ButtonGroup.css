@@ -12,7 +12,8 @@
   height: 3.2vh;
   color: #222;
   user-select: none;
-  font-family: 'Courgette', cursive;
+  font-family: 'Lucida Grande', sans-serif;
+  font-size: 15px;
   text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.4);
   text-decoration: none;
   transition: all 0.2s ease;
@@ -22,5 +23,5 @@
   box-shadow: 1px 4px rgba(220, 220, 220, .6);
 }
 .button:active {
-	color: #222;
+  color: #222;
 }

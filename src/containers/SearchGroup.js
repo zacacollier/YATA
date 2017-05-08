@@ -1,29 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
+import SearchBar from './SearchBar';
 import './SearchGroup.css'
 
 let SearchGroup = ({
   formValue,
-  handleChange,
-  handleSubmit,
+  handleSearchSubmit,
 }) => (
-  <form onSubmit={handleSubmit} className="search-group">
-    <div>
-      <input
-        name="search"
-        onChange={handleChange}
-        type="text"
-      />
-    </div>
-  </form>
+  <SearchBar
+    onSubmit={formValue => handleSearchSubmit(formValue)}
+    value={formValue}
+  />
 )
-
 const mapDispatchToProps = (dispatch) => ({
-  handleChange: (event) => dispatch({ type: 'SEARCH_FORM_CHANGE', payload: event.target.value }),
-  handleSubmit: (event) => dispatch({ type: 'SEARCH_FORM_SUBMIT', payload: event.target.value })
+  handleSearchSubmit: data => dispatch({ type: 'SEARCH_FORM_REQUEST', payload: data.search }),
 })
 const mapStateToProps = (state) => ({
   formValue: state.search.formValue,
 })
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchGroup);
+export default reduxForm({ form: 'search' })(connect(mapStateToProps, mapDispatchToProps)(SearchGroup));
