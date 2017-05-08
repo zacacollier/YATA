@@ -24,7 +24,7 @@ const fetchCoffees = (action$, store) =>
       .map((res, err) => 
         res ? ({
           type: "SEARCH_API_SUCCESS",
-          payload: res
+          payload: res.response
         }) : ({
           type: "SEARCH_API_ERROR",
           error: err
