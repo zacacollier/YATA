@@ -30,14 +30,14 @@ const fetchCoffees = (action$, store) =>
           error: err
         }))
     )
-const saveDetail = (action$, store) =>
-  action$.ofType('SELECT_DETAIL')
-    .mergeMap(({ selectedCoffee }) => 
-      Rx.Observable.from(localStorage.setItem('selectedCoffee', selectedCoffee))
-      .pluck('selectedCoffee')
-      .mapTo({ type: 'LOCAL_STORAGE_SAVE_SELECTION', selectedCoffee })
-    )
+// const saveDetail = (action$, store) =>
+//   action$.ofType('SELECT_DETAIL')
+//     .mergeMap(({ selectedCoffee }) => 
+//       Rx.Observable.from(localStorage.setItem('selectedCoffee', selectedCoffee))
+//       .pluck('selectedCoffee')
+//       .mapTo({ type: 'LOCAL_STORAGE_SAVE_SELECTION', selectedCoffee })
+//     )
 
-const rootEpic = combineEpics(startTimer, fetchCoffees, saveDetail);
+const rootEpic = combineEpics(startTimer, fetchCoffees);
 
 export default rootEpic
