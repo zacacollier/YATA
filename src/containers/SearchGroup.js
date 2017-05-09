@@ -6,16 +6,13 @@ import SearchBar from './SearchBar';
 let SearchGroup = ({
   formValue,
   handleSearchSubmit,
-}) => (
+  values
+}) =>
   <SearchBar
-    onSubmit={formValue => handleSearchSubmit(formValue)}
-    value={formValue}
+    onSubmit={values => handleSearchSubmit(values.search)}
   />
-)
+
 const mapDispatchToProps = (dispatch) => ({
-  handleSearchSubmit: data => dispatch({ type: 'SEARCH_FORM_REQUEST', payload: data.search }),
+  handleSearchSubmit: data => dispatch({ type: 'SEARCH_FORM_REQUEST', payload: data }),
 })
-const mapStateToProps = (state) => ({
-  formValue: state.search.formValue,
-})
-export default reduxForm({ form: 'search' })(connect(mapStateToProps, mapDispatchToProps)(SearchGroup));
+export default reduxForm({ form: 'search' })(connect(null, mapDispatchToProps)(SearchGroup));

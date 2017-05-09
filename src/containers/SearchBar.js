@@ -3,9 +3,9 @@ import { reduxForm, Field } from 'redux-form';
 import '../styles/SearchGroup.css';
 
 const SearchBar = ({
-  handleChange, handleSubmit,
-}) => (
-  <form onSubmit={onSubmit => handleSubmit(onSubmit)} className="search-group">
+  handleChange, handleSubmit, values
+}) =>
+  <form onSubmit={handleSubmit} className="search-group">
     <div>
       <Field
         onChange={handleChange}
@@ -15,5 +15,5 @@ const SearchBar = ({
       />
     </div>
   </form>
-)
+
 export default reduxForm({ form: 'SearchBar' })(SearchBar)

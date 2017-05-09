@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CoffeeList from '../components/CoffeeList';
 import '../styles/CoffeeListGroup.css'
 
+// TODO hide the damn list
 const CoffeeListGroup = ({
   isFetching, searchResults, selectedCoffee,
 }) => searchResults.length
