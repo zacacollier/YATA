@@ -1,4 +1,3 @@
-import _ from 'lodash';
 const initialState = {
   formValue: '',
   searchResults: [],
@@ -19,8 +18,7 @@ const search = (state = initialState, action) => {
       }
     case 'SEARCH_API_SUCCESS':
       return {
-        ...initialState,
-        searchResults: _.toPairs(action.payload).map(item => item[1])
+        ...initialState
       }
     default:
     return state

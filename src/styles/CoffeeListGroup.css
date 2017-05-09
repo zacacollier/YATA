@@ -1,14 +1,21 @@
+.loader {
+  text-align: center;
+  vertical-align: middle;
+}
 .coffee-list-group {
-  align-self: center;
+  display: flex;
+  justify-content: center;
   box-sizing: border-box;
   height: 400px;
-  width: 76%;
-  background-color: rgba(255, 248, 220, 0.4);
-  border-radius: 5px;
+  width: 100%;
   transition: all 0.2s ease-in;
+}
+.coffee-list-group > ul {
+  background-color: rgba(255, 248, 220, 0.4);
+  width: 90%;
+  border-radius: 5px;
   overflow: scroll;
 }
-
 .coffee-detail {
   height: 50%;
   margin: 7.5px 9.5px;
@@ -21,6 +28,13 @@
   transition: all 0.2s ease-in;
   justify-content: space-between;
   background: linear-gradient(to bottom,  rgba(255, 248, 220, .6) 70%, rgba(0, 0, 0, 0) 100%); /* W3C */
+}
+.selected-coffee-detail {
+  background-color: rgba(181, 207, 219, 1);
+  width: 90%;
+  border-radius: 10px;
+  padding: 14px;
+  font: 14px 'Lucida Grande';
 }
 .coffee-detail:hover {
   background-color: rgba(255, 248, 220, 1);

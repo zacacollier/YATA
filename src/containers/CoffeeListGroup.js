@@ -1,24 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CoffeeList from '../components/CoffeeList';
-import Loader from 'halogen/PulseLoader';
 import '../styles/CoffeeListGroup.css'
 
 const CoffeeListGroup = ({
-  isFetching, searchResults,
-}) => (
-  <div className="coffee-list-group">
-  {
-    isFetching
-    ? <Loader color="#302505" size="16px" />
-    : <CoffeeList coffees={searchResults} />
-  }
-  </div>
-);
+  isFetching, searchResults, selectedCoffee,
+}) => searchResults.length
+      ? <CoffeeList
+          coffees={searchResults}
+          selectedCoffee={selectedCoffee}
+        />
+      : <span className="no-coffee"></span>
 
 const mapStateToProps = (state) => ({
-  searchResults: state.search.searchResults,
-  isFetching: state.search.isFetching
+  isFetching: state.search.isFetching,
+  searchResults: state.coffees.searchResults,
+  selectedCoffee: state.coffees.selectedCoffee,
 })
 
 export default connect (mapStateToProps)(CoffeeListGroup);

@@ -30,8 +30,6 @@ const fetchCoffees = (action$, store) =>
           error: err
         }))
     )
-// const resetTimer = action$ =>
-//   action$.ofType('RESET')
 
 const rootEpic = combineEpics(startTimer, fetchCoffees)
 
