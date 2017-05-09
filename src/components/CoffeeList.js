@@ -6,10 +6,9 @@ import "../styles/CoffeeListGroup.css"
 // const isVisible = (filter, param) => filter[param] ? { display: 'none' } : { display: 'inherit' }
 
 const CoffeeList = ({ coffees, selectedCoffee }) => (
-  <div className="coffee-list-group">
-    <ul>
+  <ul className="coffee-list-group">
     {
-      coffees.map((coffee, i) =>
+      selectedCoffee.isSelected ? <span></span> : coffees.map((coffee, i) =>
         <CoffeeDetail
           key={i}
           coffee={coffee}
@@ -17,9 +16,8 @@ const CoffeeList = ({ coffees, selectedCoffee }) => (
         />
       )
     }
-    </ul>
   { selectedCoffee.isSelected && <CoffeeDetail className={"selected-coffee-detail"} coffee={selectedCoffee} /> }
-  </div>
+  </ul>
 );
 
 export default CoffeeList;

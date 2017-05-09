@@ -16,7 +16,7 @@ const startTimer = action$ =>
     )
 const fetchCoffees = (action$, store) =>
   action$.ofType('SEARCH_FORM_REQUEST')
-    .mergeMap(({ payload }) => 
+    .mergeMap(({ payload }) =>
       ajax({
         url: WrapApi(WRAP_API_KEY, payload),
         responseType: 'json',
@@ -30,7 +30,14 @@ const fetchCoffees = (action$, store) =>
           error: err
         }))
     )
+const saveDetail = (action$, store) =>
+  action$.ofType('SELECT_DETAIL')
+    .mergeMap(({ selectedCoffee }) => 
+      Rx.Observable.from(localStorage.setItem('selectedCoffee', selectedCoffee))
+      .pluck('selectedCoffee')
+      .mapTo({ type: 'LOCAL_STORAGE_SAVE_SELECTION', selectedCoffee })
+    )
 
-const rootEpic = combineEpics(startTimer, fetchCoffees)
+const rootEpic = combineEpics(startTimer, fetchCoffees, saveDetail);
 
 export default rootEpic

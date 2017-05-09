@@ -20,9 +20,12 @@ const coffees = (state = initialState, action) => {
           ...action.selectedCoffee,
           isSelected: true,
         },
+      }
+    case 'LOCAL_STORAGE_SAVE_SELECTION':
+      return {
+        ...state,
         recentSelectedCoffees: [
-          ...state.recentSelectedCoffees,
-          action.selectedCoffee
+          ...state.recentSelectedCoffees, action.coffee
         ],
       }
     default:

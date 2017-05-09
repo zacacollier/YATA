@@ -4,25 +4,31 @@
 }
 .coffee-list-group {
   display: flex;
+  align-self: center;
   justify-content: center;
   box-sizing: border-box;
-  height: 400px;
-  width: 100%;
+  height: auto;
+  width: auto;
   transition: all 0.2s ease-in;
-}
-.coffee-list-group > ul {
   background-color: rgba(255, 248, 220, 0.4);
-  width: 90%;
   border-radius: 5px;
   overflow: scroll;
 }
+/* .coffee-list-group > ul {
+/*   background-color: rgba(255, 248, 220, 0.4);
+/*   width: 90%;
+/*   border-radius: 5px;
+/*   overflow: scroll;
+/* }
+ */
 .coffee-detail {
   height: 50%;
-  margin: 7.5px 9.5px;
+  margin: 7.5px;
   border-radius: 10px;
   padding: 14px;
   font: 14px 'Lucida Grande';
   background-color: rgba(255, 248, 220, 0.6);
+  color: rbga(34, 34, 34, 1);
   display: flex;
   flex-direction: row;
   transition: all 0.2s ease-in;
@@ -38,6 +44,7 @@
 }
 .coffee-detail:hover {
   background-color: rgba(255, 248, 220, 1);
+  color: rbga(34, 34, 34, 1);
 }
 .coffee-detail h3 {
   font-style: italic;
