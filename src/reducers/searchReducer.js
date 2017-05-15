@@ -1,3 +1,5 @@
+import * as T from '../constants/actionTypes';
+
 const initialState = {
   searchResults: [],
   searchError: '',
@@ -5,12 +7,12 @@ const initialState = {
 }
 const search = (state = initialState, action) => {
   switch (action.type) {
-    case 'SEARCH_FORM_REQUEST':
+    case T.SEARCH_FORM_REQUEST:
       return {
         ...state,
         isFetching: true,
       }
-    case 'SEARCH_API_SUCCESS':
+    case T.SEARCH_API_SUCCESS:
       return {
         ...initialState
       }

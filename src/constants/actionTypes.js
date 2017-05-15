@@ -1,0 +1,9 @@
+export const SAVE_CURRENT_TIME  = 'SAVE_CURRENT_TIME';
+export const SEARCH_API_SUCCESS  = 'SEARCH_API_SUCCESS';
+export const SEARCH_API_ERROR    = 'SEARCH_API_ERROR';
+export const SEARCH_FORM_REQUEST = 'SEARCH_FORM_REQUEST';
+export const SELECT_DETAIL = 'SELECT_DETAIL';
+export const START = 'START';
+export const STOP  = 'STOP';
+export const RESET = 'RESET';
+export const TICK  = 'TICK';

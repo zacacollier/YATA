@@ -8,7 +8,7 @@ import "../styles/CoffeeListGroup.css"
 const CoffeeList = ({ coffees, selectedCoffee }) => (
   <ul className="coffee-list-group">
     {
-      selectedCoffee.isSelected ? <span></span> : coffees.map((coffee, i) =>
+      selectedCoffee.isSelected ? <CoffeeDetail className={"selected-coffee-detail"} coffee={selectedCoffee} /> : coffees.map((coffee, i) =>
         <CoffeeDetail
           key={i}
           coffee={coffee}
@@ -16,7 +16,6 @@ const CoffeeList = ({ coffees, selectedCoffee }) => (
         />
       )
     }
-  { selectedCoffee.isSelected && <CoffeeDetail className={"selected-coffee-detail"} coffee={selectedCoffee} /> }
   </ul>
 );
 

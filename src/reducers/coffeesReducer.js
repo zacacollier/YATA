@@ -1,29 +1,49 @@
+import * as T from '../constants/actionTypes';
 import { REHYDRATE } from 'redux-persist/constants';
 import _ from 'lodash';
 
 const initialState = {
   selectedCoffee: {
     isSelected: false,
-    times: []
+    loggedTimes: []
   },
   recentSelectedCoffees: [],
   searchResults: [],
+  showCoffeesList: false,
 }
 // TODO:
 // Track times
 const coffees = (state = initialState, action) => {
   switch (action.type) {
-    case 'SEARCH_API_SUCCESS':
+    case T.SEARCH_API_SUCCESS:
       return {
         ...initialState,
-        searchResults: _.toPairs(action.payload).map(item => item[1])
+        // TODO: find a better way here
+        searchResults: _.toPairs(action.payload).map(item => item[1]),
+        showCoffeesList: true,
       }
-    case 'SELECT_DETAIL':
+    case T.SELECT_DETAIL:
       return {
         ...state,
         selectedCoffee: {
           ...action.selectedCoffee,
           isSelected: true,
+        },
+        recentSelectedCoffees: [
+          ...state.recentSelectedCoffees,
+          action.selectedCoffee,
+        ],
+        showCoffeesList: true,
+      }
+    case T.SAVE_CURRENT_TIME:
+      return {
+        ...state,
+        selectedCoffee: {
+          ...state.selectedCoffee,
+          loggedTimes: [
+            ...state.selectedCoffee.loggedTimes,
+            action.payload
+          ],
         },
       }
     case REHYDRATE:
@@ -31,17 +51,12 @@ const coffees = (state = initialState, action) => {
         const { payload } = action
         return {
           ...state,
-          recentSelectedCoffees: payload.recentSelectedCoffees,
-          selectedCoffee: payload.selectedCoffee,
+          recentSelectedCoffees: payload.coffees.recentSelectedCoffees,
+          selectedCoffee: payload.coffees.selectedCoffee,
+          showCoffeesList: true,
         }
       }
-//     case 'LOCAL_STORAGE_SAVE_SELECTION':
-//       return {
-//         ...state,
-//         recentSelectedCoffees: [
-//           ...state.recentSelectedCoffees, action.coffee
-//         ],
-//       }
+      else break;
     default:
     return state
   }

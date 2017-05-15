@@ -39,5 +39,4 @@ const fetchCoffees = (action$, store) =>
 //     )
 
 const rootEpic = combineEpics(startTimer, fetchCoffees);
-
 export default rootEpic
