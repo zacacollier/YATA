@@ -1,19 +1,16 @@
 import React from 'react';
-import TimerFace from './TimerFace'
 import ButtonGroup from '../containers/ButtonGroup';
 import SearchGroup from '../containers/SearchGroup';
 import CoffeeListGroupContainer from '../containers/CoffeeListGroupContainer';
+import TimerFaceContainer from '../containers/TimerFaceContainer';
 import '../styles/App.css'
 
-const App = ({
-  timer,
-  handleReset, handleStop, handleStart
-  }) => (
+const App = (props) => (
   <div className="App">
       <CoffeeListGroupContainer />
       <SearchGroup />
     <div className="timer-group">
-      <TimerFace />
+      <TimerFaceContainer />
       <ButtonGroup />
     </div>
   </div>
