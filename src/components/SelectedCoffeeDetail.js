@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const SelectedCoffeeDetail = ({ coffee }) => (
   <div className="coffee-detail">

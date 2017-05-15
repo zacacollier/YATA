@@ -28,6 +28,7 @@ const coffees = (state = initialState, action) => {
         selectedCoffee: {
           ...action.selectedCoffee,
           isSelected: true,
+          loggedTimes: [ ...state.selectedCoffee.loggedTimes ]
         },
         recentSelectedCoffees: [
           ...state.recentSelectedCoffees,
@@ -40,10 +41,7 @@ const coffees = (state = initialState, action) => {
         ...state,
         selectedCoffee: {
           ...state.selectedCoffee,
-          loggedTimes: [
-            ...state.selectedCoffee.loggedTimes,
-            action.payload
-          ],
+          loggedTimes: state.selectedCoffee.loggedTimes.concat(action.payload)
         },
       }
     case REHYDRATE:
@@ -52,7 +50,7 @@ const coffees = (state = initialState, action) => {
         return {
           ...state,
           recentSelectedCoffees: payload.coffees.recentSelectedCoffees,
-          selectedCoffee: payload.coffees.selectedCoffee,
+          selectedCoffee: { ...payload.coffees.selectedCoffee, ...state.selectedCoffee },
           showCoffeesList: true,
         }
       }

@@ -1,11 +1,8 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import Button from '../components/Button';
 import ButtonGroup from '../components/ButtonGroup';
 import * as T from '../constants/actionTypes';
 import '../styles/ButtonGroup.css';
-
 
 const mapStateToProps = (state) => ({
   timer: state.timer.timer,

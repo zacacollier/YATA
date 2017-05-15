@@ -1,8 +1,8 @@
 import React from 'react';
 import TimerFace from './TimerFace'
-import ButtonGroup from '../containers/ButtonGroup';
-import SearchGroup from '../containers/SearchGroup';
-import CoffeeListGroup from '../containers/CoffeeListGroup';
+import ButtonGroupContainer from '../containers/ButtonGroupContainer';
+import SearchGroupContainer from '../containers/SearchGroupContainer';
+import CoffeeListGroupContainer from '../containers/CoffeeListGroupContainer';
 import '../styles/App.css'
 
 const App = ({
@@ -10,11 +10,11 @@ const App = ({
   handleReset, handleStop, handleStart
   }) => (
   <div className="App">
-      <CoffeeListGroup />
-      <SearchGroup />
+      <CoffeeListGroupContainer />
+      <SearchGroupContainer />
     <div className="timer-group">
       <TimerFace />
-      <ButtonGroup />
+      <ButtonGroupContainer />
     </div>
   </div>
 )
