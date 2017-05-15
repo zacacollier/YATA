@@ -1,4 +1,3 @@
-import { reduxForm } from 'redux-form';
 import SearchBar from '../components/SearchBar.js'
 import '../styles/SearchGroup.css';
 
