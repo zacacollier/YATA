@@ -6,18 +6,10 @@ import '../styles/CoffeeListGroup.css'
 // TODO hide the damn list
 class CoffeeListGroup extends Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps) {
-      console.log(nextProps)
-      this.props = {
-        isFetching: nextProps.isFetching,
-        searchResults: nextProps.searchResults,
-        selectedCoffee: nextProps.selectedCoffee,
-        showCoffeesList: nextProps.showCoffeesList,
-      }
-    }
+    nextProps && (this.props = { ...nextProps })
   }
   render(props) {
-    const { isFetching, searchResults, selectedCoffee, showCoffeesList } = this.props;
+    const { /*isFetching,*/ searchResults, selectedCoffee, showCoffeesList } = this.props;
     return showCoffeesList
           ? <CoffeeList
               coffees={searchResults}
