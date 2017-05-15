@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import CoffeeList from '../components/CoffeeList';
+import CoffeeList from './CoffeeList';
 import '../styles/CoffeeListGroup.css'
 
 // TODO hide the damn list
-class CoffeeListGroup extends Component {
+export default class CoffeeListGroup extends Component {
   componentWillReceiveProps(nextProps) {
     nextProps && (this.props = { ...nextProps })
   }
@@ -18,11 +17,3 @@ class CoffeeListGroup extends Component {
           : <span className="no-coffee"></span>
   }
 }
-const mapStateToProps = (state) => ({
-  isFetching: state.search.isFetching,
-  searchResults: state.coffees.searchResults,
-  selectedCoffee: state.coffees.selectedCoffee,
-  showCoffeesList: state.coffees.showCoffeesList,
-})
-
-export default connect (mapStateToProps)(CoffeeListGroup);

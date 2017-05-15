@@ -2,7 +2,7 @@ import React from 'react';
 import TimerFace from './TimerFace'
 import ButtonGroup from '../containers/ButtonGroup';
 import SearchGroup from '../containers/SearchGroup';
-import CoffeeListGroup from '../containers/CoffeeListGroup';
+import CoffeeListGroupContainer from '../containers/CoffeeListGroupContainer';
 import '../styles/App.css'
 
 const App = ({
@@ -10,7 +10,7 @@ const App = ({
   handleReset, handleStop, handleStart
   }) => (
   <div className="App">
-      <CoffeeListGroup />
+      <CoffeeListGroupContainer />
       <SearchGroup />
     <div className="timer-group">
       <TimerFace />
