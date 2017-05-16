@@ -34,7 +34,7 @@ const mapStateToProps = (state) => ({
   coffees: state.coffees,
 })
 const mapDispatchToProps = (dispatch) => ({
-  handleSaveTime: (s) => dispatch({ type: T.SAVE_CURRENT_TIME, payload: s }),
+  handleSaveTime:  s => dispatch({ type: T.SAVE_CURRENT_TIME, payload: s }),
   handleStart:    () => dispatch({ type: T.START }),
   handleStop:     () => dispatch({ type: T.STOP }),
   handleReset:    () => dispatch({ type: T.RESET }),

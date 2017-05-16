@@ -1,5 +1,6 @@
 import * as T from '../constants/actionTypes';
 import { REHYDRATE } from 'redux-persist/constants';
+import moment from 'moment';
 import _ from 'lodash';
 
 const initialState = {
@@ -43,12 +44,15 @@ const coffees = (state = initialState, action) => {
           ...state.selectedCoffee,
           loggedTimes: [
             ...state.selectedCoffee.loggedTimes,
-            action.payload
+            {
+              shot: action.payload,
+              timeOfDay: moment().format('MMM Do, h:mm A'),
+            }
           ],
         },
       }
     case REHYDRATE:
-      if (action.payload) {
+      if (action.payload.coffees) {
         const { payload } = action
         return {
           ...state,
@@ -57,7 +61,7 @@ const coffees = (state = initialState, action) => {
           showCoffeesList: true,
         }
       }
-      else break;
+      else return state;
     default:
     return state
   }
