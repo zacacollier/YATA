@@ -22,9 +22,9 @@ const ButtonGroup = (
       isDisabled={timer.seconds === 0}
     />
     <Button
-      onClick={(timer) => handleSaveTime(timer.seconds)}
+      onClick={() => handleSaveTime(timer.seconds)}
       text={'Save'}
-      isDisabled={coffees.selectedCoffee && timer.seconds > 7}
+      isDisabled={!coffees.selectedCoffee.isSelected && timer.seconds < 7}
     />
   </div>
 )
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => ({
   coffees: state.coffees,
 })
 const mapDispatchToProps = (dispatch) => ({
-  handleSaveTime: (seconds) => dispatch({ type: T.SAVE_CURRENT_TIME, payload: seconds }),
+  handleSaveTime: (s) => dispatch({ type: T.SAVE_CURRENT_TIME, payload: s }),
   handleStart:    () => dispatch({ type: T.START }),
   handleStop:     () => dispatch({ type: T.STOP }),
   handleReset:    () => dispatch({ type: T.RESET }),

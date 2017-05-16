@@ -5,7 +5,7 @@ import _ from 'lodash';
 const initialState = {
   selectedCoffee: {
     isSelected: false,
-    loggedTimes: []
+    loggedTimes: [],
   },
   recentSelectedCoffees: [],
   searchResults: [],
@@ -28,6 +28,7 @@ const coffees = (state = initialState, action) => {
         selectedCoffee: {
           ...action.selectedCoffee,
           isSelected: true,
+          loggedTimes: [],
         },
         recentSelectedCoffees: [
           ...state.recentSelectedCoffees,
