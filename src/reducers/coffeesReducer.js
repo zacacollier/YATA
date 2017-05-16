@@ -45,7 +45,11 @@ const coffees = (state = initialState, action) => {
           loggedTimes: [
             ...state.selectedCoffee.loggedTimes,
             {
-              shot: action.payload,
+              shot: {
+                dose: action.dose,
+                output: action.output,
+                time: action.payload,
+              },
               timeOfDay: moment().format('MMM Do, h:mm A'),
             }
           ],

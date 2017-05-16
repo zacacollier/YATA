@@ -35,17 +35,46 @@
   justify-content: space-between;
   background: linear-gradient(to bottom,  rgba(255, 248, 220, .6) 70%, rgba(0, 0, 0, 0) 100%); /* W3C */
 }
-.selected-coffee-detail {
-  background-color: rgba(181, 207, 219, 1);
-  width: 90%;
-  border-radius: 10px;
-  padding: 14px;
-  font: 14px 'Lucida Grande';
-}
 .coffee-detail:hover {
   background-color: rgba(255, 248, 220, 1);
   color: rbga(34, 34, 34, 1);
 }
 .coffee-detail h3 {
+  font-style: italic;
+}
+.coffee-detail-parameters {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.coffee-detail-parameters > div {
+  margin: 7.5px 0;
+}
+.coffee-detail-parameters label {
+  display: block;
+}
+.coffee-detail-parameters input {
+  background-color: gainsboro;
+  color: #222;
+  font: 16px 'Lucida Grande';
+  text-align: center;
+  box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.4);
+  height: 18px;
+  width: 60%;
+  border-radius: 15px;
+}
+.selected-coffee-detail {
+  background-color: rgba(181, 207, 219, 1);
+  width: 100%;
+  border-radius: 5px;
+  padding: 14px;
+  font: 14px 'Lucida Grande';
+}
+.selected-coffee-detail h2 {
+  font-family: 'consolas';
+}
+.selected-coffee-detail h3 {
+  font: 12px 'consolas';
   font-style: italic;
 }
