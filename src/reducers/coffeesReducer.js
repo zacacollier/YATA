@@ -31,6 +31,7 @@ const coffees = (state = initialState, action) => {
           isSelected: true,
           loggedTimes: [],
         },
+        // TODO: don't log duplicates
         recentSelectedCoffees: [
           ...state.recentSelectedCoffees,
           action.selectedCoffee,

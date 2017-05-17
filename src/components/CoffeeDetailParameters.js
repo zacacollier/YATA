@@ -26,7 +26,7 @@ const CoffeeDetailParameters = ({ handleSubmit }) => (
         placeholder="(e.g. 38)"
       />
     </div>
-    <button className="button"  type="submit">Save Parameters</button>
+    <button className="button" type="submit">Save Parameters</button>
   </form>
 )
 
