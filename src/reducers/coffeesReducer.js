@@ -1,11 +1,12 @@
 import * as T from '../constants/actionTypes';
 import { REHYDRATE } from 'redux-persist/constants';
+import moment from 'moment';
 import _ from 'lodash';
 
 const initialState = {
   selectedCoffee: {
     isSelected: false,
-    loggedTimes: []
+    loggedTimes: [],
   },
   recentSelectedCoffees: [],
   searchResults: [],
@@ -28,8 +29,9 @@ const coffees = (state = initialState, action) => {
         selectedCoffee: {
           ...action.selectedCoffee,
           isSelected: true,
-          loggedTimes: [ ...state.selectedCoffee.loggedTimes ]
+          loggedTimes: [],
         },
+        // TODO: don't log duplicates
         recentSelectedCoffees: [
           ...state.recentSelectedCoffees,
           action.selectedCoffee,
@@ -41,20 +43,30 @@ const coffees = (state = initialState, action) => {
         ...state,
         selectedCoffee: {
           ...state.selectedCoffee,
-          loggedTimes: state.selectedCoffee.loggedTimes.concat(action.payload)
+          loggedTimes: [
+            ...state.selectedCoffee.loggedTimes,
+            {
+              shot: {
+                dose: action.dose,
+                output: action.output,
+                time: action.payload,
+              },
+              timeOfDay: moment().format('MMM Do, h:mm A'),
+            }
+          ],
         },
       }
     case REHYDRATE:
-      if (action.payload) {
+      if (action.payload.coffees) {
         const { payload } = action
         return {
           ...state,
           recentSelectedCoffees: payload.coffees.recentSelectedCoffees,
-          selectedCoffee: { ...payload.coffees.selectedCoffee, ...state.selectedCoffee },
+          selectedCoffee: payload.coffees.selectedCoffee,
           showCoffeesList: true,
         }
       }
-      else break;
+      else return state;
     default:
     return state
   }

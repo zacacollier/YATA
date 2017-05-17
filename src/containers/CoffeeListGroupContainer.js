@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import CoffeeListGroup from '../components/CoffeeListGroup';
-import '../styles/CoffeeListGroup.css'
 
 const mapStateToProps = (state) => ({
   isFetching: state.search.isFetching,

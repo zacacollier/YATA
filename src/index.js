@@ -1,10 +1,14 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React        from 'react';
+import { render }   from 'react-dom';
 import { Provider } from 'react-redux';
-import { compose, createStore, applyMiddleware } from 'redux';
+import { compose,
+         createStore,
+         applyMiddleware }      from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
-import { persistStore, autoRehydrate } from 'redux-persist';
-import { createLogger } from 'redux-logger';
+import { persistStore,
+         autoRehydrate }        from 'redux-persist';
+import { createLogger }         from 'redux-logger';
+import localForage from 'localforage';
 
 import App from './components/App';
 import rootEpic from './epics';
@@ -20,7 +24,7 @@ const store = createStore(
     autoRehydrate()
   )
 );
-persistStore(store);
+persistStore(store, { storage: localForage });
 const renderApp = (Component, reduxStore = 0) => render(
   <Provider store={reduxStore}>
     <Component />
