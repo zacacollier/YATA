@@ -15,6 +15,30 @@ html, body, #root {
   background: #a07555;
   background: linear-gradient(#a07555, #d6b7a1);
 }
+.title {
+  width: 100%;
+  height: auto;
+  margin: 15px 0;
+}
+.glow {
+  color: transparent;
+  font-family: 'Damion', cursive;
+  font-size: 72px;
+  text-align: center;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: glow;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+  animation-duration: 3s;
+  animation-name: glow;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  text-rendering: optimizeLegibility;
+}
+@-webkit-keyframes glow {
+  from { text-shadow: 0 0 0px transparent; }
+  to { text-shadow: 0 0 0.1px #b5cfdb; }
+}
 .timer-group {
   width: 27.97%;
   height: auto;

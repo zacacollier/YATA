@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import '../styles/SearchGroup.css';
 
 const SearchBar = ({
@@ -19,4 +19,4 @@ const SearchBar = ({
     </div>
   </form>
 
-export default SearchBar;
+export default reduxForm({ form: 'SearchBar', initialValues: { search: '' } })(SearchBar)
